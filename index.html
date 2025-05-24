@@ -1,218 +1,443 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nilesh Goswami | My Digital Identity</title>
-  <link rel="icon" href="favicon.ico" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nilesh Goswami | My Digital Identity</title>
+  <link rel="icon" href="favicon.ico" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/daisyui"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <script>
     tailwind.config = {
+      darkMode: 'class', // Enable dark mode with 'class' strategy
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'], // For headings
+          },
           colors: {
-            'custom-dark-red': '#6f1d1b',
-            'custom-golden-brown': '#bb9457',
-            'custom-dark-brown': '#432818',
-            'custom-orange-brown': '#99582a',
-            'custom-light-cream': '#ffe6a7',
+            'primary-dark': '#6f1d1b', // Dark Red/Brown
+            'accent-light': '#bb9457', // Golden Brown
+            'text-dark': '#432818',   // Dark Brown (main text)
+            'hover-accent': '#99582a',  // Orange-Brown (hover states)
+            'background-light': '#ffe6a7', // Light Yellow/Cream (main background)
+            'card-background': '#ffffff', // White for cards in light mode
+            // Dark mode colors (adjust these for your dark theme aesthetic)
+            'dark-bg': '#1a1a1a',      // Dark background
+            'dark-card-bg': '#2a2a2a', // Darker card background
+            'dark-text': '#f0f0f0',    // Light text
+            'dark-primary': '#a04d4a', // Lighter primary for dark mode
+            'dark-accent': '#e0b57e',  // Lighter accent for dark mode
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'bounce-subtle': 'bounceSubtle 1.5s infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            bounceSubtle: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-5px)' },
+            }
           }
         }
       }
     }
   </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+  <script src="https://unpkg.com/typewriter-effect@2.18.2/dist/core.js"></script>
+
 </head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
 
-<script>
-  VANTA.WAVES({
-    el: "#welcome",
-    mouseControls: true,
-    touchControls: true,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    color: 0x6f1d1b, /* Changed Vanta.js wave color */
-    shininess: 50,
-    waveHeight: 20,
-    waveSpeed: 1.2,
-    zoom: 0.85
-  });
-</script>
+<body class="bg-background-light text-text-dark font-sans transition-colors duration-500">
 
-<body class="bg-custom-light-cream text-custom-dark-brown font-sans">
-  <header class="bg-custom-dark-red shadow-md p-4 text-custom-light-cream flex justify-between items-center">
-    <h1 class="text-xl font-bold">My Identity</h1>
-    <ul class="flex space-x-4 items-center">
-      <li><a href="#welcome" class="hover:underline hover:text-custom-golden-brown">Welcome</a></li>
-      <li><a href="#about" class="hover:underline hover:text-custom-golden-brown">About Me</a></li>
-      <li><a href="#achievements" class="hover:underline hover:text-custom-golden-brown">Achievements</a></li>
-      <li><a href="#goals" class="hover:underline hover:text-custom-golden-brown">Goals</a></li>
-      <li><a href="#contact" class="hover:underline hover:text-custom-golden-brown">Contact</a></li>
-      <li>
-  <a href="https://nileshgoswam.github.io/shop/" class="hover:text-custom-golden-brown" title="View Cart" target="_blank" rel="noopener">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-      stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-      <path stroke-linecap="round" stroke-linejoin="round"
-        d="M2.25 3h1.5l1.5 9h13.5l1.5-6H6.375m0 0L5.25 3m1.125 0h11.25" />
-    </svg>
-  </a>
-</li>
+  <script>
+    VANTA.WAVES({
+      el: "#welcome-vanta", // Target a specific div for Vanta.js
+      mouseControls: true,
+      touchControls: true,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0x6f1d1b, // Primary dark color
+      shininess: 50,
+      waveHeight: 20,
+      waveSpeed: 1.2,
+      zoom: 0.85
+    });
+  </script>
 
-    </ul>
-  </header>
-<section id="welcome" class="max-w-4xl mx-auto my-12 p-6 bg-custom-golden-brown rounded-lg shadow-lg text-center relative overflow-hidden" data-aos="fade-in" style="height: auto; min-height: 600px;">
-  <div class="relative z-10">
+  <header class="bg-primary-dark shadow-lg p-4 text-background-light flex flex-col md:flex-row justify-between items-center fixed top-0 w-full z-50 transition-colors duration-500">
+    <div class="flex items-center justify-between w-full md:w-auto mb-4 md:mb-0">
+      <h1 class="text-2xl font-bold font-display tracking-wide">Nilesh Goswami</h1>
+      <button id="theme-toggle" class="md:hidden p-2 rounded-full hover:bg-hover-accent focus:outline-none transition-colors">
+        <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M3 12H2m15.325-4.475l-.707-.707M6.372 17.628l-.707.707M18.921 18.921l-.707-.707M5.071 5.071l-.707-.707M12 18a6 6 0 100-12 6 6 0 000 12z"></path></svg>
+        <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+      </button>
+      <button id="mobile-menu-button" class="md:hidden p-2 rounded-full hover:bg-hover-accent focus:outline-none transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
 
-    <div class="mb-8 flex justify-center space-x-6">
-      <a href="https://example.com/day1" target="_blank" rel="noopener" class="flex flex-col items-center text-custom-dark-red hover:text-custom-orange-brown">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12V12zm.375 0h.008v.008h-.008V12zm-.375 3h.008v.008H12V15zm.375 0h.008v.008h-.008V15zm-.375 3h.008v.008H12V18zm.375 0h.008v.008h-.008V18z" />
-        </svg>
-        <span class="text-sm mt-1">Day 1</span>
-      </a>
-      <a href="https://example.com/day2" target="_blank" rel="noopener" class="flex flex-col items-center text-custom-dark-red hover:text-custom-orange-brown">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12V12zm.375 0h.008v.008h-.008V12zm-.375 3h.008v.008H12V15zm.375 0h.008v.008h-.008V15zm-.375 3h.008v.008H12V18zm.375 0h.008v.008h-.008V18z" />
-        </svg>
-        <span class="text-sm mt-1">Day 2</span>
-      </a>
-      <a href="https://example.com/day3" target="_blank" rel="noopener" class="flex flex-col items-center text-custom-dark-red hover:text-custom-orange-brown">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12V12zm.375 0h.008v.008h-.008V12zm-.375 3h.008v.008H12V15zm.375 0h.008v.008h-.008V15zm-.375 3h.008v.008H12V18zm.375 0h.008v.008h-.008V18z" />
-        </svg>
-        <span class="text-sm mt-1">Day 3</span>
-      </a>
-      <a href="https://example.com/day4" target="_blank" rel="noopener" class="flex flex-col items-center text-custom-dark-red hover:text-custom-orange-brown">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12V12zm.375 0h.008v.008h-.008V12zm-.375 3h.008v.008H12V15zm.375 0h.008v.008h-.008V15zm-.375 3h.008v.008H12V18zm.375 0h.008v.008h-.008V18z" />
-        </svg>
-        <span class="text-sm mt-1">Day 4</span>
-      </a>
-      <a href="https://example.com/day5" target="_blank" rel="noopener" class="flex flex-col items-center text-custom-dark-red hover:text-custom-orange-brown">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12V12zm.375 0h.008v.008h-.008V12zm-.375 3h.008v.008H12V15zm.375 0h.008v.008h-.008V15zm-.375 3h.008v.008H12V18zm.375 0h.008v.008h-.008V18z" />
-        </svg>
-        <span class="text-sm mt-1">Day 5</span>
-      </a>
-    </div>
-    <h2 class="text-3xl font-semibold mb-4 text-custom-dark-red">Welcome to My World!</h2>
-    <img src="Nilesh.jpeg" alt="My Photo" class="w-40 h-40 mx-auto rounded-full shadow-md border-4 border-custom-dark-red" />     <h3 class="text-xl font-semibold mt-6 mb-2 text-custom-dark-red">Watch My Intro Video</h3>
-    <video class="mx-auto rounded-lg shadow-lg" width="30%" controls autoplay loop muted>
-      <source src="intro-video.mp4" type="video/mp4">
-    </video>
-  </div>
-</section>
+    <nav id="main-nav" class="hidden md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 items-center w-full md:w-auto text-lg md:text-base">
+      <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 items-center">
+        <li><a href="#welcome" class="hover:underline hover:text-accent-light transition-colors">Welcome</a></li>
+        <li><a href="#about" class="hover:underline hover:text-accent-light transition-colors">About Me</a></li>
+        <li><a href="#achievements" class="hover:underline hover:text-accent-light transition-colors">Achievements</a></li>
+        <li><a href="#goals" class="hover:underline hover:text-accent-light transition-colors">Goals</a></li>
+        <li><a href="#personal" class="hover:underline hover:text-accent-light transition-colors">Personal</a></li>
+        <li><a href="#contact" class="hover:underline hover:text-accent-light transition-colors">Contact</a></li>
+        <li>
+          <a href="https://nileshgoswam.github.io/shop/" class="p-2 rounded-md hover:bg-hover-accent transition-colors" title="View Shop" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.264 1.263c.27.27.27.707 0 .977l-.953.954C20.613 13.978 20.322 14 20 14H4c-.322 0-.613-.022-.864-.066l-.953-.954a.675.675 0 010-.977l1.264-1.263C5.112 9.475 5.755 9 6.5 9h11c.745 0 1.388.475 1.745 1.157z" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <button id="theme-toggle-desktop" class="hidden md:block p-2 rounded-full hover:bg-hover-accent focus:outline-none transition-colors">
+        <svg id="theme-toggle-light-icon-desktop" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M3 12H2m15.325-4.475l-.707-.707M6.372 17.628l-.707.707M18.921 18.921l-.707-.707M5.071 5.071l-.707-.707M12 18a6 6 0 100-12 6 6 0 000 12z"></path></svg>
+        <svg id="theme-toggle-dark-icon-desktop" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+      </button>
+    </nav>
+  </header>
 
-  <section id="about" class="max-w-4xl mx-auto my-12 p-6 bg-custom-light-cream rounded-lg shadow-md" data-aos="fade-up">
-  <h2 class="text-2xl font-bold text-center mb-4 text-custom-dark-red">👤 About Me</h2>
-  <p><strong>Name:</strong> Nilesh Indrapuri Goswami</p>
-  <p><strong>Location:</strong>Dahanu Road, Palghar, Maharastra</p>
-  <p><strong>Education:</strong><br>
-    School -K.L.Ponda High School, Dahanu, Palghar, 401602<br>
-    College -BSES Junior College of Science, Dahanu, Palghar, 401602<br>
-    Degree - B.Tech in Electronics & Computer Science (Aldel St. John College of Engineering & Management)
-  </p>
-  <p><strong>Languages:</strong> English (Medium), Marathi (Advance), Hindi (Advance)</p>
-</section>
+  <main class="pt-20"> <section id="welcome" class="relative overflow-hidden min-h-screen flex items-center justify-center p-6" data-aos="fade-in">
+      <div id="welcome-vanta" class="absolute inset-0 z-0"></div> <div class="relative z-10 max-w-4xl mx-auto p-8 bg-card-background/90 dark:bg-dark-card-bg/90 rounded-lg shadow-2xl text-center backdrop-blur-sm transition-colors duration-500 animate-fade-in-up">
+        <div class="mb-8 flex justify-center space-x-6" data-aos="zoom-in" data-aos-delay="200">
+          <a href="https://example.com/day1" target="_blank" rel="noopener" class="day-icon transform hover:scale-110 transition-transform duration-300 flex flex-col items-center text-primary-dark hover:text-hover-accent dark:text-dark-primary dark:hover:text-dark-accent">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 animate-bounce-subtle">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12V12zm.375 0h.008v.008h-.008V12zm-.375 3h.008v.008H12V15zm.375 0h.008v.008h-.008V15zm-.375 3h.008v.008H12V18zm.375 0h.008v.008h-.008V18z" />
+            </svg>
+            <span class="text-sm mt-1">Day 1</span>
+          </a>
+          <a href="https://example.com/day2" target="_blank" rel="noopener" class="day-icon transform hover:scale-110 transition-transform duration-300 flex flex-col items-center text-primary-dark hover:text-hover-accent dark:text-dark-primary dark:hover:text-dark-accent">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 animate-bounce-subtle">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12V12zm.375 0h.008v.008h-.008V12zm-.375 3h.008v.008H12V15zm.375 0h.008v.008h-.008V15zm-.375 3h.008v.008H12V18zm.375 0h.008v.008h-.008V18z" />
+            </svg>
+            <span class="text-sm mt-1">Day 2</span>
+          </a>
+          <a href="https://example.com/day3" target="_blank" rel="noopener" class="flex flex-col items-center text-primary-dark hover:text-hover-accent dark:text-dark-primary dark:hover:text-dark-accent transform hover:scale-110 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 animate-bounce-subtle">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12V12zm.375 0h.008v.008h-.008V12zm-.375 3h.008v.008H12V15zm.375 0h.008v.008h-.008V15zm-.375 3h.008v.008H12V18zm.375 0h.008v.008h-.008V18z" />
+            </svg>
+            <span class="text-sm mt-1">Day 3</span>
+          </a>
+          <a href="https://example.com/day4" target="_blank" rel="noopener" class="flex flex-col items-center text-primary-dark hover:text-hover-accent dark:text-dark-primary dark:hover:text-dark-accent transform hover:scale-110 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 animate-bounce-subtle">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12V12zm.375 0h.008v.008h-.008V12zm-.375 3h.008v.008H12V15zm.375 0h.008v.008h-.008V15zm-.375 3h.008v.008H12V18zm.375 0h.008v.008h-.008V18z" />
+            </svg>
+            <span class="text-sm mt-1">Day 4</span>
+          </a>
+          <a href="https://example.com/day5" target="_blank" rel="noopener" class="flex flex-col items-center text-primary-dark hover:text-hover-accent dark:text-dark-primary dark:hover:text-dark-accent transform hover:scale-110 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 animate-bounce-subtle">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12V12zm.375 0h.008v.008h-.008V12zm-.375 3h.008v.008H12V15zm.375 0h.008v.008h-.008V15zm-.375 3h.008v.008H12V18zm.375 0h.008v.008h-.008V18z" />
+            </svg>
+            <span class="text-sm mt-1">Day 5</span>
+          </a>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-bold font-display mb-6 text-primary-dark dark:text-dark-primary leading-tight" data-aos="fade-up" data-aos-delay="400">
+          Welcome to <span id="typewriter-text" class="text-accent-light dark:text-dark-accent"></span>
+        </h2>
+        <img src="Nilesh.jpeg" alt="Nilesh Goswami" class="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-full shadow-xl border-4 border-primary-dark dark:border-dark-primary object-cover transition-all duration-500 hover:scale-105 mb-8" data-aos="zoom-in" data-aos-delay="600" />
+        <h3 class="text-xl md:text-2xl font-semibold mt-6 mb-4 text-text-dark dark:text-dark-text" data-aos="fade-up" data-aos-delay="800">Watch My Intro Video</h3>
+        <video class="mx-auto rounded-xl shadow-xl w-full max-w-lg" controls autoplay loop muted playsinline data-aos="fade-up" data-aos-delay="1000">
+          <source src="intro-video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="mt-8 text-lg text-text-dark dark:text-dark-text" data-aos="fade-up" data-aos-delay="1200">
+          Explore my journey, achievements, and aspirations.
+        </p>
+      </div>
+    </section>
 
-  <section id="achievements" class="max-w-4xl mx-auto my-12 p-6 bg-custom-light-cream rounded-lg shadow-md" data-aos="fade-up">
-  <h2 id="achievements-title" class="text-2xl font-bold text-center mb-4 text-custom-dark-red"></h2>
-  <ul id="achievements-list" class="list-disc pl-5 space-y-2 text-custom-dark-brown"></ul>
-</section>
+    <section id="about" class="max-w-4xl mx-auto my-16 p-8 bg-card-background dark:bg-dark-card-bg rounded-xl shadow-xl transition-colors duration-500" data-aos="fade-up">
+      <h2 class="text-3xl font-bold font-display text-center mb-6 text-primary-dark dark:text-dark-primary">👤 About Me</h2>
+      <div class="space-y-4 text-lg">
+        <p><strong>Name:</strong> Nilesh Indrapuri Goswami</p>
+        <p><strong>Location:</strong> Dahanu Road, Palghar, Maharashtra</p>
+        <p><strong>Education:</strong><br>
+          School - K.L.Ponda High School, Dahanu, Palghar, 401602<br>
+          College - BSES Junior College of Science, Dahanu, Palghar, 401602<br>
+          Degree - B.Tech in Electronics & Computer Science (Aldel St. John College of Engineering & Management)
+        </p>
+        <p><strong>Languages:</strong> English (Medium), Marathi (Advance), Hindi (Advance)</p>
+        <div class="mt-6">
+          <h3 class="text-xl font-semibold text-primary-dark dark:text-dark-primary mb-3">Key Skills:</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="skill-tag">Web Development</span>
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Electronics</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Data Structures</span>
+            </div>
+        </div>
+      </div>
+    </section>
 
-  <script>
-  fetch('achievements.json')
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('achievements-title').textContent = data.title;
+    <section id="achievements" class="max-w-4xl mx-auto my-16 p-8 bg-card-background dark:bg-dark-card-bg rounded-xl shadow-xl transition-colors duration-500" data-aos="fade-up">
+      <h2 id="achievements-title" class="text-3xl font-bold font-display text-center mb-6 text-primary-dark dark:text-dark-primary"></h2>
+      <ul id="achievements-list" class="list-disc pl-5 space-y-3 text-lg text-text-dark dark:text-dark-text"></ul>
+    </section>
 
-      const list = document.getElementById('achievements-list');
-      data.items.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item.description;
-        list.appendChild(li);
-      });
-    })
-    .catch(error => {
-      console.error('Error loading achievements:', error);
-    });
-</script>
+    <section id="goals" class="max-w-4xl mx-auto my-16 p-8 bg-card-background dark:bg-dark-card-bg rounded-xl shadow-xl transition-colors duration-500" data-aos="fade-up">
+      <h2 id="goals-title" class="text-3xl font-bold font-display text-center mb-6 text-primary-dark dark:text-dark-primary"></h2>
+      <p id="goals-description" class="text-lg text-text-dark dark:text-dark-text leading-relaxed"></p>
+    </section>
+
+    <section id="personal" class="max-w-4xl mx-auto my-16 p-8 bg-card-background dark:bg-dark-card-bg rounded-xl shadow-xl transition-colors duration-500" data-aos="fade-up">
+      <h2 id="personal-title" class="text-3xl font-bold font-display text-center mb-6 text-primary-dark dark:text-dark-primary"></h2>
+      <div id="personal-details" class="space-y-3 text-lg text-text-dark dark:text-dark-text"></div>
+    </section>
+
+    <section id="contact" class="max-w-4xl mx-auto my-16 p-8 bg-card-background dark:bg-dark-card-bg rounded-xl shadow-xl transition-colors duration-500" data-aos="fade-up">
+      <h2 class="text-3xl font-bold font-display text-center mb-8 text-primary-dark dark:text-dark-primary">Connect With Me</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div class="space-y-4 text-lg">
+          <p class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-hover-accent dark:text-dark-accent">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75l10.5 6 10.5-6m-21 0V4.606c0-1.083.82-1.996 1.876-2.122A2.25 2.25 0 014.5 2.25h15c1.056 0 1.938.913 2.05 2.084V6.75m-21 0v10.5c0 1.056.84 1.938 2.084 2.05l2.084.225A2.25 2.25 0 0021 18.75V6.75m-21 0z" />
+            </svg>
+            <a href="mailto:123nileshpuri7019@sjcem.edu.in" class="text-text-dark hover:text-hover-accent dark:text-dark-text dark:hover:text-dark-accent underline transition-colors">123nileshpuri7019@sjcem.edu.in</a>
+          </p>
+          <p class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-hover-accent dark:text-dark-accent">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.381a1.5 1.5 0 00-.422-1.044l-4.239-4.239a1.5 1.5 0 00-1.044-.422H11.25a2.25 2.25 0 01-2.25-2.25V6.75a2.25 2.25 0 012.25-2.25h1.382c.243-.075.49-.153.742-.239a48.334 48.334 0 00-1.057-.156 1.5 1.5 0 00-1.5-1.5H7.75a4.5 4.5 0 00-4.5 4.5v11.5c0 1.125.9 2.025 2.025 2.025h11.5a4.5 4.5 0 004.5-4.5V10.5m-11.25 5.25a.75.75 0 01-.75.75H11.25a.75.75 0 01-.75-.75v-.75m0 0a.75.75 0 01.75-.75h.75m0 0a.75.75 0 01.75.75v.75m0 0" />
+            </svg>
+            <a href="tel:9665769169" class="text-text-dark hover:text-hover-accent dark:text-dark-text dark:hover:text-dark-accent underline transition-colors">+919665769169</a>
+          </p>
+          <p class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-hover-accent dark:text-dark-accent">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7.757 4.075a.75.75 0 00-1.06 0L3.07 6.745l2.673 2.673a.75.75 0 001.06 0l2.673-2.673 2.673 2.673a.75.75 0 001.06 0L17.93 6.745l2.673 2.673a.75.75 0 001.06 0L24.93 4.075M12 21a9 9 0 100-18 9 9 0 000 18z" />
+            </svg>
+            <a href="https://wa.me/919665769169" class="text-text-dark hover:text-hover-accent dark:text-dark-text dark:hover:text-dark-accent underline transition-colors" target="_blank" rel="noopener">Chat on WhatsApp</a>
+          </p>
+          <p class="mt-4 flex items-center gap-4">
+            <a href="https://github.com/NileshGoswam" target="_blank" rel="noopener" class="social-icon" title="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.007.07 1.532 1.03 1.532 1.03.89 1.529 2.336 1.089 2.90.835.092-.647.35-1.089.636-1.334-2.22-.253-4.555-1.115-4.555-4.945 0-1.092.39-1.983 1.029-2.675-.103-.253-.446-1.268.099-2.64 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.372.202 2.387.099 2.64.64.692 1.029 1.583 1.029 2.675 0 3.84-2.339 4.681-4.566 4.935.359.309.678.92.678 1.855 0 1.336-.012 2.418-.012 2.744 0 .268.18.578.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.523 2 12 2z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/nilesh-goswami-03b5a8296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" class="social-icon" title="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+                <path d="M.057 20.354V9.333h4.636v11.021H.057zM2.378 7.378a2.64 2.64 0 110-5.28 2.64 2.64 0 010 5.28zm5.729 13.013V9.333h4.409v1.937c.616-1.171 2.124-2.025 3.96-2.025 4.39 0 7.215 2.92 7.215 8.784v10.322h-4.636v-9.155c0-2.18-.84-3.668-2.85-3.668-1.554 0-2.466 1.054-2.872 2.072v10.751H8.107z" />
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/nilesh_goswami17?utm_source=qr&igsh=dGNnYW55MGl1aXlj" target="_blank" rel="noopener" class="social-icon" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+                <path fill-rule="evenodd" d="M12 4c-2.71 0-3.056.01-4.12.06A4.508 4.508 0 003.88 7.88c-.05 1.064-.06 1.41-.06 4.12s.01 3.056.06 4.12a4.508 4.508 0 003.88 3.88c1.064.05 1.41.06 4.12.06s3.056-.01 4.12-.06a4.508 4.508 0 003.88-3.88c.05-1.064.06-1.41.06-4.12s-.01-3.056-.06-4.12a4.508 4.508 0 00-3.88-3.88c-1.064-.05-1.41-.06-4.12-.06zm0 1.6c2.68 0 2.996.01 4.04.06a2.915 2.915 0 012.06 2.06c.05 1.044.06 1.36.06 4.04s-.01 2.996-.06 4.04a2.915 2.915 0 01-2.06 2.06c-1.044.05-1.36.06-4.04.06s-2.996-.01-4.04-.06a2.915 2.915 0 01-2.06-2.06c-.05-1.044-.06-1.36-.06-4.04s.01-2.996.06-4.04a2.915 2.915 0 012.06-2.06c1.044-.05 1.36-.06 4.04-.06zM12 9a3 3 0 100 6 3 3 0 000-6zm0 1.6a1.4 1.4 0 110 2.8 1.4 1.4 0 010-2.8zm5.5-3.3a.75.75 0 100 1.5.75.75 0 000-1.5z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </p>
+        </div>
+        <div>
+          <iframe src="https://www.google.com/maps?q=Dahanu,Maharashtra&output=embed" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+      <form action="https://formspree.io/f/mnndryya" method="POST" class="mt-6 flex flex-col gap-4">
+        <input type="text" name="name" placeholder="Your Name" required class="border border-text-dark p-3 rounded-md focus:ring-2 focus:ring-hover-accent bg-background-light dark:bg-dark-card-bg text-text-dark dark:text-dark-text transition-all duration-300" />
+        <input type="email" name="_replyto" placeholder="Your Email" required class="border border-text-dark p-3 rounded-md focus:ring-2 focus:ring-hover-accent bg-background-light dark:bg-dark-card-bg text-text-dark dark:text-dark-text transition-all duration-300" />
+        <textarea name="message" placeholder="Your Message" rows="5" required class="border border-text-dark p-3 rounded-md focus:ring-2 focus:ring-hover-accent bg-background-light dark:bg-dark-card-bg text-text-dark dark:text-dark-text transition-all duration-300"></textarea>
+        <button type="submit" class="bg-primary-dark text-background-light px-6 py-3 rounded-md hover:bg-hover-accent transition-colors duration-300 text-lg font-semibold shadow-md">Send Message</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="bg-primary-dark text-background-light text-center py-6 mt-12 transition-colors duration-500">
+    <p class="text-lg">© 2025 Nilesh Goswami. All rights reserved.</p>
+    <p class="text-sm mt-2">Built with ❤️ and Tailwind CSS</p>
+  </footer>
+
+  <button id="scroll-to-top" class="fixed bottom-6 right-6 bg-accent-light text-primary-dark p-3 rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-hover-accent hover:text-background-light dark:bg-dark-accent dark:text-dark-bg dark:hover:bg-dark-primary">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+    </svg>
+  </button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      mirror: false
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // --- Dark Mode Toggle ---
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const themeToggleBtnDesktop = document.getElementById('theme-toggle-desktop');
+      const lightIcon = document.getElementById('theme-toggle-light-icon');
+      const darkIcon = document.getElementById('theme-toggle-dark-icon');
+      const lightIconDesktop = document.getElementById('theme-toggle-light-icon-desktop');
+      const darkIconDesktop = document.getElementById('theme-toggle-dark-icon-desktop');
+      const htmlElement = document.documentElement;
+
+      // Function to set theme
+      const setTheme = (theme) => {
+        if (theme === 'dark') {
+          htmlElement.classList.add('dark');
+          lightIcon.classList.remove('hidden');
+          darkIcon.classList.add('hidden');
+          lightIconDesktop.classList.remove('hidden');
+          darkIconDesktop.classList.add('hidden');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          htmlElement.classList.remove('dark');
+          lightIcon.classList.add('hidden');
+          darkIcon.classList.remove('hidden');
+          lightIconDesktop.classList.add('hidden');
+          darkIconDesktop.classList.remove('hidden');
+          localStorage.setItem('theme', 'light');
+        }
+      };
+
+      // Initial theme setup based on local storage or system preference
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setTheme('dark');
+      } else {
+        setTheme('light');
+      }
+
+      // Toggle theme on button click
+      themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+        setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+      });
+       themeToggleBtnDesktop.addEventListener('click', () => {
+        const currentTheme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+        setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+      });
 
 
-<section id="goals" class="max-w-4xl mx-auto my-12 p-6 bg-custom-light-cream rounded-lg shadow-md" data-aos="fade-up">
-  <h2 id="goals-title" class="text-2xl font-bold text-center mb-4 text-custom-dark-red"></h2>
-  <p id="goals-description"></p>
-</section>
+      // --- Smooth Scroll Navigation ---
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
 
-<section id="personal" class="max-w-4xl mx-auto my-12 p-6 bg-custom-light-cream rounded-lg shadow-md" data-aos="fade-up">
-  <h2 id="personal-title" class="text-2xl font-bold text-center mb-4 text-custom-dark-red"></h2>
-  <div id="personal-details" class="space-y-2 text-custom-dark-brown"></div>
-</section>
-<script>
-// Load Future Goals
-fetch('goals.json')
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById('goals-title').textContent = data.title;
-    document.getElementById('goals-description').textContent = data.description;
-  })
-  .catch(error => console.error('Error loading goals:', error));
+          // Close mobile menu if open
+          if (mobileMenu.classList.contains('flex')) {
+            mobileMenu.classList.remove('flex');
+            mobileMenu.classList.add('hidden');
+            menuOpenIcon.classList.remove('hidden');
+            menuCloseIcon.classList.add('hidden');
+          }
 
-// Load Personal Side
-fetch('personal.json')
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById('personal-title').textContent = data.title;
-    const container = document.getElementById('personal-details');
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - document.querySelector('header').offsetHeight, // Adjust for fixed header
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
 
-    const addParagraph = (label, value) => {
-      const p = document.createElement('p');
-      p.innerHTML = `<strong>${label}:</strong> ${value}`;
-      container.appendChild(p);
-    };
+      // --- Scroll to Top Button ---
+      const scrollToTopBtn = document.getElementById('scroll-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) { // Show button after scrolling 300px
+          scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+          scrollToTopBtn.classList.add('opacity-100');
+        } else {
+          scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+          scrollToTopBtn.classList.remove('opacity-100');
+        }
+      });
 
-    addParagraph("Hobbies", data.details.hobbies.join(', '));
-    addParagraph("Role Model", data.details.roleModel);
-    addParagraph("Favorite Books", data.details.favoriteBooks.join(', '));
-    addParagraph("Favorite Websites", data.details.favoriteWebsites.join(', '));
-    addParagraph("Favorite Startups", data.details.favoriteStartups.join(', '));
-    addParagraph("Volunteering", data.details.volunteering);
-  })
-  .catch(error => console.error('Error loading personal section:', error));
-</script>
+      scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
 
+      // --- Typewriter Effect for Hero Text ---
+      new Typewriter('#typewriter-text', {
+        strings: ['My World!', 'Nilesh Goswami!', 'Your Future Colleague!'],
+        autoStart: true,
+        loop: true,
+        delay: 75,
+        deleteSpeed: 30,
+      });
 
-  <section id="contact" class="max-w-4xl mx-auto my-12 p-6 bg-custom-light-cream rounded-lg shadow-md" data-aos="fade-up">
-    <h2 class="text-2xl font-bold text-center mb-4 text-custom-dark-red">Contact Me</h2>
-    <p>📞 <a href="tel:9665769169" class="text-custom-orange-brown underline hover:text-custom-dark-red">+919665769169</a></p>
-    <p>💬 <a href="https://wa.me/919665769169" class="text-custom-orange-brown underline hover:text-custom-dark-red">Chat on WhatsApp</a></p>
-    <p>✉️ <a href="mailto:123nileshpuri7019@sjcem.edu.in" class="text-custom-orange-brown underline hover:text-custom-dark-red">123nileshpuri7019@sjcem.edu.in</a></p>
-    <p>📍 <iframe src="https://www.google.com/maps?q=Dahanu,Maharashtra&output=embed" width="100%" height="200" style="border:0;" allowfullscreen=""></iframe></p>
-    <p class="mt-4">🌐 <a href="https://github.com/NileshGoswam" class="underline text-custom-orange-brown hover:text-custom-dark-red">GitHub</a> |
-        <a href="https://www.linkedin.com/in/nilesh-goswami-03b5a8296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="underline text-custom-orange-brown hover:text-custom-dark-red">LinkedIn</a> |
-        <a href="https://www.instagram.com/nilesh_goswami17?utm_source=qr&igsh=dGNnYW55MGl1aXlj" class="underline text-custom-orange-brown hover:text-custom-dark-red">Instagram</a></p>
-    <form action="https://formspree.io/f/mnndryya" method="POST" class="mt-6 flex flex-col gap-4">
-      <input type="text" name="name" placeholder="Your Name" required class="border border-custom-dark-brown p-2 rounded-md bg-custom-light-cream text-custom-dark-brown" />
-      <input type="email" name="_replyto" placeholder="Your Email" required class="border border-custom-dark-brown p-2 rounded-md bg-custom-light-cream text-custom-dark-brown" />
-      <textarea name="message" placeholder="Your Message" required class="border border-custom-dark-brown p-2 rounded-md bg-custom-light-cream text-custom-dark-brown"></textarea>
-      <button type="submit" class="bg-custom-dark-red text-custom-light-cream px-4 py-2 rounded-md hover:bg-custom-orange-brown transition-colors">Send</button>
-    </form>
-  </section>
+      // --- Mobile Menu Toggle ---
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mainNav = document.getElementById('main-nav');
+      const menuOpenIcon = document.getElementById('menu-icon-open');
+      const menuCloseIcon = document.getElementById('menu-icon-close');
 
-  <footer class="bg-custom-dark-red text-custom-light-cream text-center py-4 mt-12">
-    <p>© 2025 Nilesh  Goswami </p>
-  </footer>
+      mobileMenuButton.addEventListener('click', () => {
+        mainNav.classList.toggle('hidden');
+        mainNav.classList.toggle('flex');
+        menuOpenIcon.classList.toggle('hidden');
+        menuCloseIcon.classList.toggle('hidden');
+      });
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
+      // --- Load external JSON data (Achievements, Goals, Personal) ---
+      fetch('achievements.json')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('achievements-title').textContent = data.title;
+          const list = document.getElementById('achievements-list');
+          data.items.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item.description;
+            list.appendChild(li);
+          });
+        })
+        .catch(error => {
+          console.error('Error loading achievements:', error);
+        });
 
-  <script src="script.js"></script>
+      fetch('goals.json')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('goals-title').textContent = data.title;
+          document.getElementById('goals-description').textContent = data.description;
+        })
+        .catch(error => console.error('Error loading goals:', error));
+
+      fetch('personal.json')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('personal-title').textContent = data.title;
+          const container = document.getElementById('personal-details');
+          const addParagraph = (label, value) => {
+            const p = document.createElement('p');
+            p.innerHTML = `<strong>${label}:</strong> ${value}`;
+            container.appendChild(p);
+          };
+          addParagraph("Hobbies", data.details.hobbies.join(', '));
+          addParagraph("Role Model", data.details.roleModel);
+          addParagraph("Favorite Books", data.details.favoriteBooks.join(', '));
+          addParagraph("Favorite Websites", data.details.favoriteWebsites.join(', '));
+          addParagraph("Favorite Startups", data.details.favoriteStartups.join(', '));
+          addParagraph("Volunteering", data.details.volunteering);
+        })
+        .catch(error => console.error('Error loading personal section:', error));
+    });
+  </script>
 </body>
 </html>
