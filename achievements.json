@@ -4,27 +4,21 @@
   "items": [
     {
       "type": "project",
-      "description": "Major project: Gesture Vocalizer"
+      "description": "Major project: Mini Drone"
     },
-    {
-      "type": "competition",
-      "description": "Tech competitions & hackathons"
-    },
+   
     {
       "type": "internship",
-      "description": "Internship at tech company"
+      "description": "College inside internship in 2024"
     },
     {
       "type": "leadership",
-      "description": "Led college team for community project"
+      "description": "Led college team for community project and Class representative of my class"
     },
-    {
-      "type": "representation",
-      "description": "Represented college in international ideathon (Florida University)"
-    },
+   
     {
       "type": "award",
-      "description": "2nd in presentation on \"Pacemaker\""
+      "description": "3rd place in SSC Board Exam in College"
     }
   ]
 }
